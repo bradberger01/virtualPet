@@ -13,6 +13,8 @@ namespace virtualPet
         private int hungerLevel;
         private int energyLevel;
         private int happinessLevel;
+        private int maxPower;
+        //private int whatToDo;
 
         public string TypeOfPet
         {
@@ -39,6 +41,15 @@ namespace virtualPet
             get { return this.happinessLevel; }
             set { this.happinessLevel = value; }
         }
+        public int MaxPower
+        {
+            set { this.maxPower = 5; }
+        }
+        //public int WhatToDo
+        //{
+        //    get { return this.whatToDo; }
+        //    set { this.whatToDo = value; }
+        //}
         public VirtualPet()
         {
             this.name = "James";
@@ -69,25 +80,30 @@ namespace virtualPet
             Console.WriteLine("2 Play with {0}", name);
             Console.WriteLine("3 Let {0} Sleep", name);
             Console.WriteLine("4 Take {0} to the bathroom", name);
+
+            //int whatToDo = int.Parse(Console.ReadLine());
         }
         public void Eat()
         {
-            if (this.HungerLevel >= 5)
+            if (this.HungerLevel > 5)
             {
-                this.HungerLevel = 5;
+                this.HungerLevel = this.maxPower;
                 Console.WriteLine("I am not hungry right now. Hunger Level is full");
+                Console.WriteLine(" ");
             }
             else if(this.HungerLevel > 2 && this.HungerLevel <= 4)
             {
                 this.HungerLevel += 1;
                 Console.WriteLine("Yum. That banana did the trick. Hunger level is at {0}.", this.HungerLevel);
+                Console.WriteLine(" ");
             }
             else if(this.HungerLevel >= 1 && this.HungerLevel <= 2)
             {
                 this.HungerLevel += 1;
                 Console.WriteLine("Thanks. I was starving. Hunger level is {0}.", this.HungerLevel);
+                Console.WriteLine(" ");
             }
-            else
+            else if(this.HungerLevel <= 0)
             {
                 Console.WriteLine("Hunger level is at {0}. I died of starvation. GAME OVER", this.HungerLevel);
                 return;
@@ -98,12 +114,13 @@ namespace virtualPet
         }
         public void Play()
         {
-            if (this.HappinessLevel >= 5)
+            if (this.HappinessLevel > 5)
             {
-                this.HappinessLevel = 5;
+                this.HappinessLevel = this.maxPower;
                 this.EnergyLevel -= 1;
                 this.HungerLevel -= 1;
                 Console.WriteLine("I am super happy right now. Happiness Level is full");
+                Console.WriteLine(" ");
             }
             else if (this.HappinessLevel > 2 && this.HappinessLevel <= 4)
             {
@@ -111,15 +128,17 @@ namespace virtualPet
                 this.EnergyLevel -= 1;
                 this.HungerLevel -= 1;
                 Console.WriteLine("That was fun. Happiness level is at {0}.", this.HappinessLevel);
+                Console.WriteLine(" ");
             }
-            else if (this.HappinessLevel >= 1 && this.HappinessLevel <= 2)
+            else if (this.HappinessLevel == 1 && this.HappinessLevel <= 2)
             {
                 this.HappinessLevel += 1;
                 this.EnergyLevel -= 1;
                 this.HungerLevel -= 1;
                 Console.WriteLine("Thanks. I was getting bored. Happiness level is {0}.", this.HappinessLevel);
+                Console.WriteLine(" ");
             }
-            else
+            else if(this.HappinessLevel <= 0)
             {
                 Console.WriteLine("Happiness level is at {0}. I died of bordom. GAME OVER", this.happinessLevel);
                 return;
@@ -133,10 +152,12 @@ namespace virtualPet
                 this.EnergyLevel += 1;
                 this.HungerLevel -= 1;
                 Console.WriteLine("I am super refreshed but might need some food");
+                Console.WriteLine(" ");
             }
             else 
             {
                 Console.WriteLine("I don't feel like sleeping. My Happiness level and Energy level are full.");
+                Console.WriteLine(" ");
             }
         }
         public void Bathroom()
@@ -144,6 +165,7 @@ namespace virtualPet
             if(this.HungerLevel <= 2)
             {
                 Console.WriteLine("I don't need to go right now.");
+                Console.WriteLine(" ");
             }
             else if(this.HungerLevel > 2 && this.HungerLevel < 5)
             {
@@ -151,6 +173,7 @@ namespace virtualPet
                 this.EnergyLevel += 1;
                 this.HappinessLevel += 1;
                 Console.WriteLine("Thanks. I feel better");
+                Console.WriteLine(" ");
                     
             }
             else
@@ -159,6 +182,7 @@ namespace virtualPet
                 this.EnergyLevel += 1;
                 this.HappinessLevel += 1;
                 Console.WriteLine("Thanks. I really needed to go. Glad I didn't have an accident.");
+                Console.WriteLine(" ");
             }
         }
 

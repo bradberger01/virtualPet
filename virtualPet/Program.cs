@@ -11,9 +11,30 @@ namespace virtualPet
         static void Main(string[] args)
         {
             VirtualPet monkey = new VirtualPet();
-            monkey.Start();
 
-           int whatToDo = int.Parse(Console.ReadLine());
+            while (monkey.EnergyLevel > 0 && monkey.HappinessLevel > 0 && monkey.HungerLevel > 0)
+            {
+                monkey.Start();
+                Console.WriteLine(" ");
+               int whatToDo = int.Parse(Console.ReadLine());
+                if (whatToDo == 1)
+                {
+                    monkey.Eat();
+                }
+                else if(whatToDo == 2)
+                {
+                    monkey.Play();
+                }
+                else if(whatToDo == 3)
+                {
+                    monkey.Sleep();
+                }
+                else if(whatToDo == 4)
+                {
+                    monkey.Bathroom();
+                }
+            }
+            Console.WriteLine("GAME OVER");
         }
     }
 }
