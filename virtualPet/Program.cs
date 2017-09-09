@@ -10,6 +10,10 @@ namespace virtualPet
     {
         static void Main(string[] args)
         {
+            VirtualPet monkey = new VirtualPet();
+            monkey.Start();
+
+           int whatToDo = int.Parse(Console.ReadLine());
         }
     }
 }

@@ -1,1 +1,6 @@
 c:\users\wecancodeit\documents\visual studio 2015\Projects\virtualPet\virtualPet\bin\Debug\virtualPet.exe.config
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\virtualPet\virtualPet\bin\Debug\virtualPet.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\virtualPet\virtualPet\bin\Debug\virtualPet.pdb
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\virtualPet\virtualPet\obj\Debug\virtualPet.csprojResolveAssemblyReference.cache
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\virtualPet\virtualPet\obj\Debug\virtualPet.exe
+C:\Users\WeCanCodeIT\Documents\Visual Studio 2015\Projects\virtualPet\virtualPet\obj\Debug\virtualPet.pdb
