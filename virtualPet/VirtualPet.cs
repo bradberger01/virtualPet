@@ -13,7 +13,8 @@ namespace virtualPet
         private int hungerLevel;
         private int energyLevel;
         private int happinessLevel;
-        private int maxPower;
+    
+
         //private int whatToDo;
 
         public string TypeOfPet
@@ -41,10 +42,7 @@ namespace virtualPet
             get { return this.happinessLevel; }
             set { this.happinessLevel = value; }
         }
-        public int MaxPower
-        {
-            set { this.maxPower = 5; }
-        }
+      
         //public int WhatToDo
         //{
         //    get { return this.whatToDo; }
@@ -80,33 +78,36 @@ namespace virtualPet
             Console.WriteLine("2 Play with {0}", name);
             Console.WriteLine("3 Let {0} Sleep", name);
             Console.WriteLine("4 Take {0} to the bathroom", name);
+            Console.WriteLine("5 Do Nothing");
 
             //int whatToDo = int.Parse(Console.ReadLine());
         }
         public void Eat()
         {
-            if (this.HungerLevel > 5)
+            if (this.HungerLevel >= 5)
             {
-                this.HungerLevel = this.maxPower;
+                this.HungerLevel = 5;
                 Console.WriteLine("I am not hungry right now. Hunger Level is full");
                 Console.WriteLine(" ");
             }
             else if(this.HungerLevel > 2 && this.HungerLevel <= 4)
             {
                 this.HungerLevel += 1;
+                this.EnergyLevel += 1;
                 Console.WriteLine("Yum. That banana did the trick. Hunger level is at {0}.", this.HungerLevel);
                 Console.WriteLine(" ");
             }
             else if(this.HungerLevel >= 1 && this.HungerLevel <= 2)
             {
                 this.HungerLevel += 1;
+                this.EnergyLevel += 1;
                 Console.WriteLine("Thanks. I was starving. Hunger level is {0}.", this.HungerLevel);
                 Console.WriteLine(" ");
             }
             else if(this.HungerLevel <= 0)
             {
-                Console.WriteLine("Hunger level is at {0}. I died of starvation. GAME OVER", this.HungerLevel);
                 return;
+                //Console.WriteLine("Hunger level is at {0}. I died of starvation. GAME OVER", this.HungerLevel);
             }
         
 
@@ -114,15 +115,15 @@ namespace virtualPet
         }
         public void Play()
         {
-            if (this.HappinessLevel > 5)
+            if (this.HappinessLevel >= 5)
             {
-                this.HappinessLevel = this.maxPower;
+                this.HappinessLevel = 5;
                 this.EnergyLevel -= 1;
                 this.HungerLevel -= 1;
                 Console.WriteLine("I am super happy right now. Happiness Level is full");
                 Console.WriteLine(" ");
             }
-            else if (this.HappinessLevel > 2 && this.HappinessLevel <= 4)
+            else if (this.HappinessLevel >= 3 && this.HappinessLevel <= 4)
             {
                 this.HappinessLevel += 1;
                 this.EnergyLevel -= 1;
@@ -140,7 +141,7 @@ namespace virtualPet
             }
             else if(this.HappinessLevel <= 0)
             {
-                Console.WriteLine("Happiness level is at {0}. I died of bordom. GAME OVER", this.happinessLevel);
+                //Console.WriteLine("Happiness level is at {0}. I died of bordom.", this.happinessLevel);
                 return;
             }
         }
@@ -183,6 +184,19 @@ namespace virtualPet
                 this.HappinessLevel += 1;
                 Console.WriteLine("Thanks. I really needed to go. Glad I didn't have an accident.");
                 Console.WriteLine(" ");
+            }
+        }
+        public void DoNothing()
+        {
+            if(this.HungerLevel >= 1 || this.EnergyLevel >= 1 || this.HappinessLevel >= 1)
+            {
+                this.HungerLevel -= 1;
+                this.EnergyLevel -= 1;
+                this.HappinessLevel -= 1;
+            }
+            else if(this.HungerLevel == 0 || this.EnergyLevel == 0 || this.HappinessLevel == 0)
+            {
+                return;
             }
         }
 

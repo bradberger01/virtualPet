@@ -10,10 +10,11 @@ namespace virtualPet
     {
         static void Main(string[] args)
         {
-            VirtualPet monkey = new VirtualPet();
+            VirtualPet monkey = new VirtualPet("Punky", "Monkey", 5, 5, 5);
 
             while (monkey.EnergyLevel > 0 && monkey.HappinessLevel > 0 && monkey.HungerLevel > 0)
             {
+
                 monkey.Start();
                 Console.WriteLine(" ");
                int whatToDo = int.Parse(Console.ReadLine());
@@ -33,8 +34,14 @@ namespace virtualPet
                 {
                     monkey.Bathroom();
                 }
+                else if(whatToDo == 5)
+                {
+                    monkey.DoNothing();
+                }
             }
-            Console.WriteLine("GAME OVER");
+           
+            Console.WriteLine("I DIED FROM NEGLECT. GAME OVER");
+            return;
         }
     }
 }
