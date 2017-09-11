@@ -8,6 +8,7 @@ namespace virtualPet
 {
     class VirtualPet
     {
+        //Fields
         private string typeOfPet;
         private string name;
         private int hungerLevel;
@@ -15,8 +16,8 @@ namespace virtualPet
         private int happinessLevel;
     
 
-        //private int whatToDo;
-
+        
+        //Properties
         public string TypeOfPet
         {
             get { return this.typeOfPet; }
@@ -64,6 +65,7 @@ namespace virtualPet
             this.energyLevel = energyLevel;
             this.happinessLevel = happinessLevel;
         }
+        //Constructors
         public void Start()
         {
             Console.WriteLine("Your Pet: " + this.Name);

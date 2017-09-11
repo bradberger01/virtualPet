@@ -10,7 +10,10 @@ namespace virtualPet
     {
         static void Main(string[] args)
         {
+            //Punky the monkey virtual Pet
             VirtualPet monkey = new VirtualPet("Punky", "Monkey", 5, 5, 5);
+
+            //Loop plays game until energy level, hunger level or happiness level get to 0
 
             while (monkey.EnergyLevel > 0 && monkey.HappinessLevel > 0 && monkey.HungerLevel > 0)
             {
@@ -39,7 +42,8 @@ namespace virtualPet
                     monkey.DoNothing();
                 }
             }
-           
+           //Once loop is broken "Game Over" message returns and program ends
+
             Console.WriteLine("I DIED FROM NEGLECT. GAME OVER");
             return;
         }
